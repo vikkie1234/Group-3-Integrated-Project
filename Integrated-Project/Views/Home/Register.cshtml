@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Register";
+}
+<style>
+    p {
+        text-align: center;
+    }
+
+    #pLabel {
+        text-align: left !important;
+    }
+
+    a {
+        color: #666666
+    }
+
+    #button {
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+        border-radius: 6px;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        color: #fff;
+        background-color: #2E3192;
+        border-color: #2e6da4;
+    }
+</style>
+<div class="jumbotron" style="margin: auto; width:fit-content">
+    <h4>@Html.ActionLink("Home", "Index", "Home") &nbsp; @Html.ActionLink("About", "About", "Home") &nbsp; @Html.ActionLink("Contact", "Contact", "Home")</h4>
+    <h1>Register</h1><br>
+    <p class="lead" id="pLabel">Name</p>
+    <p><input type="text"></p>
+    <p class="lead" id="pLabel">Email</p>
+    <p><input type="email"></p>
+    <p class="lead" id="pLabel">Cell phone</p>
+    <p><input type="text"></p>
+    <br>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">SAVE</a></p>
+</div>
