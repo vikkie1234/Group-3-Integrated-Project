@@ -47,7 +47,9 @@
     <h2>@Html.ActionLink("About", "About", "Home")</h2>
     <h2>@Html.ActionLink("Contact", "Contact", "Home")</h2>
     <p class="lead" id="pName">Name</p>
-    <p><input type="text"></p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Login</a></p>
-    <p><a href="https://localhost:44384/Home/Register" class="btn btn-primary btn-lg">Register</a></p>
+    @*<p><input type="text"></p>*@
+    <p>@Html.TextBoxFor(a => a.UserName)</p>
+    <p>@Html.ValidationMessageFor(a => a.UserName)</p>
+    <p><a href="@Url.Action("Login", "Home")" class="btn btn-primary btn-lg">Login</a></p>
+    <p><a href="/Home/Register" class="btn btn-primary btn-lg">Register</a></p>
 </div>
