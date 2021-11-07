@@ -145,7 +145,7 @@ input::-moz-focus-inner {
   padding: 0;
 }
 input {
-  line-height: normal;
+    line-height: normal;
 }
 input[type="checkbox"],
 input[type="radio"] {
@@ -5036,7 +5036,7 @@ a.badge:focus {
   padding-bottom: 30px;
   margin-bottom: 30px;
   color: inherit;
-  background-color: #eeeeee;
+  background-color: #ffffff;
 }
 .jumbotron h1,
 .jumbotron .h1 {

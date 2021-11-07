@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="UserDetailsdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TblAdmin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="TblDetail">
     <Key>
       <PropertyRef Name="id" />
@@ -10,6 +18,7 @@
     <Property Name="CellNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="UserDetailsdbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TblAdmins" EntityType="Self.TblAdmin" />
     <EntitySet Name="TblDetails" EntityType="Self.TblDetail" />
   </EntityContainer>
 </Schema>

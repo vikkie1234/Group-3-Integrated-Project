@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Integrated_Project.Model.TblDetail
+@{
     ViewBag.Title = "Register";
 }
 <style>
@@ -42,16 +43,37 @@
         background-color: #2E3192;
         border-color: #2e6da4;
     }
+    .validation-summary-errors {
+        color: red;
+    }
+
+    .field-validation-error {
+        color: red;
+    }
+
+    .input-validation-error {
+        color: red;
+    }
 </style>
-<div class="jumbotron" style="margin: auto; width:fit-content">
+<div class="jumbotron" style="margin: auto; width: fit-content; background-color: #FFFFFF">
+    <h1><a href="/Home/Index"><img src="~/Logo/TECHSPO_Logo.PNG" alt="TECHSPO_Logo.PNG"></a></h1>
     <h4>@Html.ActionLink("Home", "Index", "Home") &nbsp; @Html.ActionLink("About", "About", "Home") &nbsp; @Html.ActionLink("Contact", "Contact", "Home")</h4>
     <h1>Register</h1><br>
-    <p class="lead" id="pLabel">Name</p>
-    <p><input type="text"></p>
-    <p class="lead" id="pLabel">Email</p>
-    <p><input type="email"></p>
-    <p class="lead" id="pLabel">Cell phone</p>
-    <p><input type="text"></p>
-    <br>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">SAVE</a></p>
+    @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <p class="lead" id="pLabel">Name</p>
+        <p>@Html.TextBoxFor(a => a.Name)</p>
+        <p>@Html.ValidationMessageFor(a => a.Name)</p>
+        <p class="lead" id="pLabel">Email</p>
+        <p>@Html.TextBoxFor(a => a.Email)</p>
+        <p>@Html.ValidationMessageFor(a => a.Email)</p>
+        <p class="lead" id="pLabel">Cell phone</p>
+        <p>@Html.TextBoxFor(a => a.CellNo)</p>
+        <p>@Html.ValidationMessageFor(a => a.CellNo)</p>
+        <br>
+        //<p><a href="https://asp.net" class="btn btn-primary btn-lg">SAVE</a></p>
+        <p><input type="submit" value="Save" class="btn btn-primary btn-lg" /></p>
+    }
 </div>

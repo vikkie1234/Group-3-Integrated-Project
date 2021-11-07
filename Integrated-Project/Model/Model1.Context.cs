@@ -25,6 +25,7 @@ namespace Integrated_Project.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<TblAdmin> TblAdmins { get; set; }
         public virtual DbSet<TblDetail> TblDetails { get; set; }
     }
 }

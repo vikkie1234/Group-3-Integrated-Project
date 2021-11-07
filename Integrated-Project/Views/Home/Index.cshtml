@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Integrated_Project.Model.TblDetail
+@{
     ViewBag.Title = "Home Page";
 }
 <style>
@@ -10,7 +11,7 @@
 
     h1 {text-align:center;}
 
-    a {color: #666666}
+    a {color: #666666;}
 
     #button {
         padding: 10px 16px;
@@ -40,16 +41,34 @@
         background-color: #2E3192;
         border-color: #2e6da4;
     }
+
+    .validation-summary-errors {
+        color: red;
+    }
+
+    .field-validation-error {
+        color: red;
+    }
+
+    .input-validation-error {
+        color: red;
+    }
 </style>
-<div class="jumbotron" style="margin: auto; width:fit-content">
-    <h1>Logo</h1>
+<div class="jumbotron" style="margin: auto; width: fit-content; background-color: #FFFFFF">
+    <h1><a href="/Home/Index"><img src="~/Logo/TECHSPO_Logo.PNG" alt="TECHSPO_Logo.PNG"></a></h1>
     <h2>@Html.ActionLink("Home", "Index", "Home")</h2>
     <h2>@Html.ActionLink("About", "About", "Home")</h2>
     <h2>@Html.ActionLink("Contact", "Contact", "Home")</h2>
-    <p class="lead" id="pName">Name</p>
-    @*<p><input type="text"></p>*@
-    <p>@Html.TextBoxFor(a => a.UserName)</p>
-    <p>@Html.ValidationMessageFor(a => a.UserName)</p>
-    <p><a href="@Url.Action("Login", "Home")" class="btn btn-primary btn-lg">Login</a></p>
-    <p><a href="/Home/Register" class="btn btn-primary btn-lg">Register</a></p>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <p class="lead" id="pName">Name:</p>
+        <p>@Html.TextBoxFor(a => a.Name)</p>
+        <p>@Html.ValidationMessageFor(a => a.Name)</p>
+        //<p><a href="@Url.Action("Login", "Home")" class="btn btn-primary btn-lg">Login</a></p>
+        <p><input type="submit" value="Login" class="btn btn-primary btn-lg"/></p>
+        <p><a href="/Home/Register" class="btn btn-primary btn-lg">Register</a></p>
+    }
+
 </div>

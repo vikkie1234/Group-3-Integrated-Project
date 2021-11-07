@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="UserDetailsdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TblAdmin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" />
+          <Property Name="Password" Type="varchar" MaxLength="30" />
+        </EntityType>
         <EntityType Name="TblDetails">
           <Key>
             <PropertyRef Name="id" />
@@ -15,6 +23,7 @@
           <Property Name="CellNo" Type="varchar" MaxLength="15" />
         </EntityType>
         <EntityContainer Name="UserDetailsdbModelStoreContainer">
+          <EntitySet Name="TblAdmin" EntityType="Self.TblAdmin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblDetails" EntityType="Self.TblDetails" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
@@ -22,6 +31,14 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="UserDetailsdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TblAdmin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="TblDetail">
           <Key>
             <PropertyRef Name="id" />
@@ -32,6 +49,7 @@
           <Property Name="CellNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="UserDetailsdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TblAdmins" EntityType="Self.TblAdmin" />
           <EntitySet Name="TblDetails" EntityType="Self.TblDetail" />
         </EntityContainer>
       </Schema>
@@ -40,6 +58,15 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="UserDetailsdbModelStoreContainer" CdmEntityContainer="UserDetailsdbEntities">
+          <EntitySetMapping Name="TblAdmins">
+            <EntityTypeMapping TypeName="UserDetailsdbModel.TblAdmin">
+              <MappingFragment StoreEntitySet="TblAdmin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TblDetails">
             <EntityTypeMapping TypeName="UserDetailsdbModel.TblDetail">
               <MappingFragment StoreEntitySet="TblDetails">

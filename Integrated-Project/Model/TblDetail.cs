@@ -6,7 +6,7 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
+using System.ComponentModel.DataAnnotations;
 namespace Integrated_Project.Model
 {
     using System;
@@ -15,8 +15,18 @@ namespace Integrated_Project.Model
     public partial class TblDetail
     {
         public int id { get; set; }
+
+        [Display(Name = "Name")]
+        [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
+
+        [Display(Name = "Email address")]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
+
+        [Display(Name = "Cell number")]
+        [Required(ErrorMessage = "The Cellphone Number is required")]
         public string CellNo { get; set; }
     }
 }
